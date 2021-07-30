@@ -14,7 +14,7 @@ const INIT_STATE = {
   productDetails: {},
 };
 
-
+console.log('main')
 
 const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
