@@ -14,6 +14,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import NoteAddIcon from '@material-ui/icons/NoteAdd';
+import { useProducts } from '../../contexts/ProductContext';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -84,8 +86,16 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
   const classes = useStyles();
+  const { history, getProductsData } = useProducts()
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+
+  const handleValue = (e) => {
+    const search = new URLSearchParams(history.location.search)
+    search.set('q', e.target.value)
+    history.push(`${history.location.pathname}?${search.toString()}`)
+    getProductsData()
+  }
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -143,10 +153,8 @@ const Header = () => {
         <p>Messages</p>
       </MenuItem>
       <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <NotificationsIcon />
-          </Badge>
+        <IconButton onClick={() => history.push('/addproduct')} aria-label="show 11 new notifications" color="inherit">
+            <NoteAddIcon />
         </IconButton>
         <p>Notifications</p>
       </MenuItem>
@@ -190,6 +198,7 @@ const Header = () => {
                 input: classes.inputInput,
               }}
               inputProps={{ 'aria-label': 'search' }}
+              onChange={(e) => handleValue(e)}
             />
           </div>
           <div className={classes.grow} />
@@ -199,10 +208,8 @@ const Header = () => {
                 <MailIcon />
               </Badge>
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
+            <IconButton onClick={() => history.push('/addproduct')} aria-label="show 17 new notifications" color="inherit">
+                <NoteAddIcon />
             </IconButton>
             <IconButton
               edge="end"

@@ -1,11 +1,11 @@
 {
   "products": [
     {
-      "title": "Iphone 12",
+      "title": "Iphone 13 PRO",
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
       "type": "iphone",
       "image": "https://media.wired.com/photos/5e9f56f143e5800008514457/1:1/w_1277,h_1277,c_limit/Gear-Feature-Apple_new-iphone-se-white_04152020.jpg",
-      "price": "123",
+      "price": "1000",
       "id": 1
     },
     {
@@ -73,11 +73,11 @@
       "id": 9
     },
     {
-      "title": "new test",
-      "image": "https://content.onliner.by/news/1100x5616/472baa6904f365c4bae96d6b77c13010.jpeg",
-      "price": "test",
-      "type": "test",
-      "description": "testsdf",
+      "title": "jshfgkjhk",
+      "type": "kjfshkdfgh",
+      "image": "asd",
+      "description": "kjshfkjghkj",
+      "price": "kjhsfdg",
       "id": 10
     }
   ],

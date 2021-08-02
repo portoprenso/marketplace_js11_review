@@ -1,22 +1,20 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
-import Collapse from "@material-ui/core/Collapse";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { Box, Container } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
+import DeleteIcon from '@material-ui/icons/Delete'
+import { useProducts } from "../../contexts/ProductContext";
+import EditIcon from '@material-ui/icons/Edit';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ProductCard = ({ item }) => {
   const classes = useStyles();
+  const { deleteProduct, history, addProductToCart } = useProducts()
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -80,11 +79,17 @@ const ProductCard = ({ item }) => {
           </Box>
         </Container>
         <Container>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
+          <IconButton onClick={() => addProductToCart(item)} aria-label="add to favorites">
+            <AddShoppingCartIcon />
           </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
+          <IconButton onClick={() => history.push(`/edit/${item.id}`)}>
+            <EditIcon />
+          </IconButton>
+          <IconButton
+          aria-label="share"
+          onClick={() => deleteProduct(item.id)}
+          >
+            <DeleteIcon />
           </IconButton>
         </Container>
       </CardActions>
