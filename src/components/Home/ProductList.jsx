@@ -4,22 +4,28 @@ import { useProducts } from '../../contexts/ProductContext';
 import ProductCard from './ProductCard';
 
 const ProductList = () => {
-  const { productsData, getProductsData } = useProducts()
+  const { productsData, getProductsData } = useProducts();
   useEffect(() => {
-    getProductsData()
-  }, [])
+    getProductsData();
+  }, []);
 
   useEffect(() => {
-    console.log(productsData)
-  }, [productsData])
+    console.log(productsData);
+  }, [productsData]);
 
   return (
-    <Grid container justify="space-around">
-      {productsData && productsData
-      ?
-      (productsData.map(item => <ProductCard item={item}/>))
-      :
-      <></>}
+    <Grid container spacing={6}>
+      {productsData ? (
+        productsData.map((item) => (
+          <Grid item>
+            <ProductCard item={item} />
+          </Grid>
+        ))
+      ) : (
+        <>
+          <h1>...loading</h1>
+        </>
+      )}
     </Grid>
   );
 };

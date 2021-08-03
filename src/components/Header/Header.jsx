@@ -16,6 +16,8 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import NoteAddIcon from '@material-ui/icons/NoteAdd';
 import { useProducts } from '../../contexts/ProductContext';
+import { ShoppingCart } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -81,21 +83,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
-
 const Header = () => {
   const classes = useStyles();
-  const { history, getProductsData } = useProducts()
+  const { history, getProductsData, cart } = useProducts();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const handleValue = (e) => {
-    const search = new URLSearchParams(history.location.search)
-    search.set('q', e.target.value)
-    history.push(`${history.location.pathname}?${search.toString()}`)
-    getProductsData()
-  }
+    const search = new URLSearchParams(history.location.search);
+    search.set('q', e.target.value);
+    history.push(`${history.location.pathname}?${search.toString()}`);
+    getProductsData();
+  };
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -154,7 +153,7 @@ const Header = () => {
       </MenuItem>
       <MenuItem>
         <IconButton onClick={() => history.push('/addproduct')} aria-label="show 11 new notifications" color="inherit">
-            <NoteAddIcon />
+          <NoteAddIcon />
         </IconButton>
         <p>Notifications</p>
       </MenuItem>
@@ -176,17 +175,14 @@ const Header = () => {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer">
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
-          </Typography>
+          <Link to="/">
+            <Typography className={classes.title} variant="h6" noWrap>
+              Material-UI
+            </Typography>
+          </Link>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -203,13 +199,19 @@ const Header = () => {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton onClick={() => history.push('/addproduct')} aria-label="show 17 new notifications" color="inherit">
-                <NoteAddIcon />
+            <Link to="/cart">
+              <IconButton aria-label="show 4 new mails" color="inherit">
+                <Badge badgeContent={cart.products ? cart.products.length : 0} color="secondary">
+                  <ShoppingCart />
+                </Badge>
+              </IconButton>
+            </Link>
+            <IconButton
+              onClick={() => history.push('/addproduct')}
+              aria-label="show 17 new notifications"
+              color="inherit"
+            >
+              <NoteAddIcon />
             </IconButton>
             <IconButton
               edge="end"

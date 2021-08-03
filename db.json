@@ -9,14 +9,6 @@
       "id": 1
     },
     {
-      "title": "Iphone X",
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      "type": "iphone",
-      "image": "https://media.wired.com/photos/5e9f56f143e5800008514457/1:1/w_1277,h_1277,c_limit/Gear-Feature-Apple_new-iphone-se-white_04152020.jpg",
-      "price": "111",
-      "id": 2
-    },
-    {
       "title": "Iphone 11",
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
       "type": "iphone",
@@ -63,22 +55,6 @@
       "image": "https://www.gizmochina.com/wp-content/uploads/2019/06/Galaxy-A60-featured.jpg",
       "price": "111",
       "id": 8
-    },
-    {
-      "title": "test",
-      "image": "https://images.unsplash.com/photo-1612151855475-877969f4a6cc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aGQlMjBpbWFnZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
-      "price": "1111",
-      "type": "test",
-      "description": "sfsdfsdf",
-      "id": 9
-    },
-    {
-      "title": "jshfgkjhk",
-      "type": "kjfshkdfgh",
-      "image": "asd",
-      "description": "kjshfkjghkj",
-      "price": "kjhsfdg",
-      "id": 10
     }
   ],
   "users": [
