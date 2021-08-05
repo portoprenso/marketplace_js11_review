@@ -7,13 +7,19 @@ import ProductDetails from './../components/Home/ProductDetails';
 import AddProductPage from './../components/Admin/AddProductPage';
 import EditProductPage from './../components/Admin/EditProductPage';
 import Cart from '../components/Cart/Cart';
+import Login from './../components/Auth/Login';
+import Registration from './../components/Auth/Registration';
+import AuthContextProvider from '../contexts/AuthContext';
 
 const Routes = () => {
   return (
     <BrowserRouter>
+      <AuthContextProvider>
       <ProductContextProvider>
         <Header />
         <Switch>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/registration" component={Registration} />
           <Route exact path="/" component={Home} />
           <Route exact path="/addproduct" component={AddProductPage} />
           <Route exact path="/cart" component={Cart} />
@@ -21,6 +27,7 @@ const Routes = () => {
           <Route exact path="/edit/:id" component={EditProductPage} />
         </Switch>
       </ProductContextProvider>
+      </AuthContextProvider>
     </BrowserRouter>
   );
 };

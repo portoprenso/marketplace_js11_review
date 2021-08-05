@@ -1,8 +1,9 @@
-import { makeStyles } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 import React from 'react';
 import { useEffect } from 'react';
 import { useProducts } from '../../contexts/ProductContext';
 import ProductList from './ProductList';
+import SideBar from './SideBar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +26,10 @@ const Home = () => {
 
   return (
     <div className={classes.root}>
-      <ProductList />
+      <Grid container spacing-md={3} spacing-sm={3}>
+        <SideBar />
+        <ProductList />
+      </Grid>
     </div>
   );
 };

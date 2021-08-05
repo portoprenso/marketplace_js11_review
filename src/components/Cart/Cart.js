@@ -12,6 +12,8 @@ import { useProducts } from '../../contexts/ProductContext';
 import { Tab, Typography } from '@material-ui/core';
 import { useState } from 'react';
 
+console.log('asd')
+
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
