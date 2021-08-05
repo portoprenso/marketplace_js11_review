@@ -9,12 +9,10 @@ import EditProductPage from './../components/Admin/EditProductPage';
 import Cart from '../components/Cart/Cart';
 import Login from './../components/Auth/Login';
 import Registration from './../components/Auth/Registration';
-import AuthContextProvider from '../contexts/AuthContext';
 
 const Routes = () => {
   return (
     <BrowserRouter>
-      <AuthContextProvider>
       <ProductContextProvider>
         <Header />
         <Switch>
@@ -27,7 +25,6 @@ const Routes = () => {
           <Route exact path="/edit/:id" component={EditProductPage} />
         </Switch>
       </ProductContextProvider>
-      </AuthContextProvider>
     </BrowserRouter>
   );
 };

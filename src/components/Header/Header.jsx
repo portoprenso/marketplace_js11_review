@@ -18,6 +18,7 @@ import NoteAddIcon from '@material-ui/icons/NoteAdd';
 import { useProducts } from '../../contexts/ProductContext';
 import { ShoppingCart } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -88,7 +89,7 @@ const Header = () => {
   const { history, getProductsData, cart } = useProducts();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
+  const { user, logout } = useAuth();
   const handleValue = (e) => {
     const search = new URLSearchParams(history.location.search);
     search.set('q', e.target.value);
@@ -105,6 +106,11 @@ const Header = () => {
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
+  };
+
+  const handleLogOut = () => {
+    logout();
+    handleMenuClose();
   };
 
   const handleMenuClose = () => {
@@ -127,8 +133,18 @@ const Header = () => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      {user ? (
+        <MenuItem onClick={handleLogOut}>Выйти</MenuItem>
+      ) : (
+        <>
+          <Link to="/registration">
+            <MenuItem onClick={handleMenuClose}>Регистрация</MenuItem>
+          </Link>
+          <Link to="/login">
+            <MenuItem onClick={handleMenuClose}>Войти</MenuItem>
+          </Link>
+        </>
+      )}
     </Menu>
   );
 
