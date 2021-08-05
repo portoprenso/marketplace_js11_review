@@ -5,7 +5,7 @@
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
       "type": "iphone",
       "image": "https://media.wired.com/photos/5e9f56f143e5800008514457/1:1/w_1277,h_1277,c_limit/Gear-Feature-Apple_new-iphone-se-white_04152020.jpg",
-      "price": "1000",
+      "price": 1000,
       "id": 1
     },
     {
@@ -55,6 +55,14 @@
       "image": "https://www.gizmochina.com/wp-content/uploads/2019/06/Galaxy-A60-featured.jpg",
       "price": "111",
       "id": 8
+    },
+    {
+      "title": "as",
+      "type": "asd",
+      "image": "asd",
+      "description": "asd",
+      "price": 12,
+      "id": 9
     }
   ],
   "users": [
